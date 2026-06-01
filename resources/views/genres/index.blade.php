@@ -20,7 +20,7 @@
         <form action="{{ route('genres.destroy', $genre->id) }}" method="post">
             @csrf
             @method('DELETE')
-            <button type="submit">Törlés</button>
+            <button type="submit" onclick="return confirm('Biztosan akarja törölni?')">Törlés</button>
         </form>
     </li>
     @endforeach

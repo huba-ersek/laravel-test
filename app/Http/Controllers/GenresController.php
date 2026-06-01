@@ -88,6 +88,9 @@ class GenresController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $genre = Genre::find($id);
+        $genre->delete();
+
+        return redirect()->route('genres.index')->with('success', 'Műfaj sikeresen törölve!');
     }
 }
