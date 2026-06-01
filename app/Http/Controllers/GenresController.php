@@ -58,7 +58,8 @@ class GenresController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $genre = Genre::find($id);
+        return view('genres.edit', compact('genre'));
     }
 
     /**
@@ -66,7 +67,20 @@ class GenresController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate(
+            ["name" => "required|max:255"],
+            [
+                "name.max" => "A műfaj neve legfeljebb 255 karakter hosszú legyen.",
+                "name.required" => "A műfaj neve kötelező mező."
+            ]
+        );
+
+        $genre = Genre::find($id);
+        $genre->name = $request->name;
+        $genre->timestamps = false;
+        $genre->save();
+
+        return redirect()->route('genres.index')->with('success', 'Műfaj sikeresen módosítva!');
     }
 
     /**
