@@ -1,3 +1,7 @@
+@extends('layout')
+
+@section('content')
+
 <h1>Műfajok</h1>
 
 @if(session('success'))
@@ -11,3 +15,5 @@
     <li>{{ $genre->id }} - {{ $genre->name }}</li>
     @endforeach
 </ul>
+
+@endsection

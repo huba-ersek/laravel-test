@@ -1,3 +1,7 @@
+@extends('layout')
+
+@section('content')
+
 <h1>Új műfaj</h1>
 
 @error('name')
@@ -14,3 +18,5 @@
     </fieldset>
     <button type="submit">Ment</button>
 </form>
+
+@endsection
