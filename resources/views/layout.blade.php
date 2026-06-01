@@ -8,10 +8,19 @@
     <link rel="stylesheet" href="{{ asset('style.css') }}">
 </head>
 <body>
-    <header></header>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ route('genres.index') }}">Műfajok</a></li>
+                <li><a href="{{ route('genres.create') }}">Új műfaj</a></li>
+            </ul>
+        </nav>
+    </header>
     <main>
         @yield('content')
     </main>
-    <footer></footer>
+    <footer>
+        © 2026 Érsek Huba
+    </footer>
 </body>
 </html>
