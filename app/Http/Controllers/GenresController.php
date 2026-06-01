@@ -29,9 +29,13 @@ class GenresController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            "name" => "required|max:255"
-        ]);
+        $request->validate(
+            ["name" => "required|max:255"],
+            [
+                "name.max" => "A műfaj neve legfeljebb 255 karakter hosszú legyen.",
+                "name.required" => "A műfaj neve kötelező mező."
+            ]
+        );
         $genre = new Genre();
         $genre->name = $request->name;
         $genre->timestamps = false;

@@ -1,5 +1,11 @@
 <h1>Új műfaj</h1>
 
+@error('name')
+<div class="alert alert-warning">
+    {{ $message }}
+</div>
+@enderror
+
 <form action="{{ route('genres.store') }}" method="post">
     @csrf
     <fieldset>
