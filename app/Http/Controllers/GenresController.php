@@ -33,6 +33,7 @@ class GenresController extends Controller
         ]);
         $genre = new Genre();
         $genre->name = $request->name;
+        $genre->timestamps = false;
         $genre->save();
 
         return redirect()->route("genres.index")->with('success', 'Műfaj sikeresen létrehozva');
