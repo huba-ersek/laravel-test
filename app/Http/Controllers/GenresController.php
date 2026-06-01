@@ -49,7 +49,8 @@ class GenresController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $genre = Genre::find($id);
+        return view('genres.show', compact('genre'));
     }
 
     /**
