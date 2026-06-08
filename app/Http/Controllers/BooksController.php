@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Author;
+use App\Models\Book;
+use App\Models\Genre;
 use Illuminate\Http\Request;
 
 class BooksController extends Controller
@@ -20,7 +23,9 @@ class BooksController extends Controller
      */
     public function create()
     {
-        //
+        $genres = Genre::all();
+        $authors = Author::all();
+        return view('books.create', compact('genres', 'authors'));
     }
 
     /**
@@ -28,7 +33,16 @@ class BooksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "title" => "required",
+            "description" => "required",
+            "year" => "required|integer",
+            "genre_id" => "required|exists:genres,id",
+            "author_id" => "required|exists:authors,id"
+        ]);
+
+        Book::withoutTimestamps(fn() => Book::create($request->all()));
+        return redirect()->route('books.index')->with('success', 'Könyv sikeresen létrehozva');
     }
 
     /**
