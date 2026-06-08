@@ -85,6 +85,9 @@ class AuthorsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $author = Author::find($id);
+        $author->delete();
+
+        return redirect()->route('authors.index')->with('success', 'Író sikeresen törölve!');
     }
 }
