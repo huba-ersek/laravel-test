@@ -2,7 +2,9 @@
 
 @section('content')
 
-<h1>Műfajok</h1>
+<h1>Műfajok
+    <a href="{{ route('genres.create') }}" title="Új műfaj hozzáadása"> ➕</a>
+</h1>
 
 @if(session('success'))
 <div class="alert alert-success">
