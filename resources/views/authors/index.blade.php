@@ -3,7 +3,7 @@
 @section('content')
 
 <h1>Írók listája
-    <a href="{{ route('authors.create') }}" title="Új író hozzáadása"> ➕</a>
+    <a class="create" href="{{ route('authors.create') }}" title="Új író hozzáadása"> ➕</a>
 </h1>
 
 @if(session('success'))

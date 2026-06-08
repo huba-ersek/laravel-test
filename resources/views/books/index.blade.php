@@ -3,7 +3,7 @@
 @section('content')
 
 <h1>Könyvek
-    <a href="{{ route('books.create') }}" title="Új könyv hozzáadása"> ➕</a>
+    <a class="create" href="{{ route('books.create') }}" title="Új könyv hozzáadása"> ➕</a>
 </h1>
 
 @if(session('success'))
