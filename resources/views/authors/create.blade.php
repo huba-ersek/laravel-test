@@ -4,11 +4,15 @@
 
 <h1>Új író</h1>
 
-@error('name')
-<div class="alert alert-warning">
-    {{ $message }}
-</div>
-@enderror
+@if($errors->any())
+    <div class="alert alert-warning">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
 <form action="{{ route('authors.store') }}" method="post">
     @csrf
