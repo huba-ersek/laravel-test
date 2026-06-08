@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Author;
 use Illuminate\Http\Request;
 
 class AuthorsController extends Controller
@@ -19,7 +20,7 @@ class AuthorsController extends Controller
      */
     public function create()
     {
-        //
+        return view('authors.create');
     }
 
     /**
@@ -27,7 +28,18 @@ class AuthorsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "name" => "required|string",
+            "birth_time" => "required|date"
+        ]);
+
+        $author = new Author();
+        $author->name = $request->name;
+        $author->birth_time = $request->birth_time;
+        $author->timestamps = false;
+        $author->save();
+
+        return redirect()->route('authors.index')->with('success', 'Író sikeresen létrehozva!');
     }
 
     /**
