@@ -14,7 +14,7 @@
 
 <ul>
     @foreach($genres as $genre)
-    <li>
+    <li class="item">
         {{ $genre->name }}
         <br>
         <a href="{{ route('genres.show', $genre->id) }}">Megjelenítés</a><br>
@@ -22,7 +22,7 @@
         <form action="{{ route('genres.destroy', $genre->id) }}" method="post">
             @csrf
             @method('DELETE')
-            <button type="submit" onclick="return confirm('Biztosan akarja törölni?')">Törlés</button>
+            <button class="delete" type="submit" onclick="return confirm('Biztosan akarja törölni?')">Törlés</button>
         </form>
     </li>
     @endforeach

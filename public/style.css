@@ -26,3 +26,36 @@ body {
     background-color: #555555;
     color: white;
 }
+
+button[type=submit], input, select {
+    font-size: xx-large;
+}
+
+.item {
+    list-style-type: none;
+    padding-bottom: 30px;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.item:hover {
+    background-color: white;
+}
+
+.item a {
+    text-decoration: none;
+    color: black;
+}
+
+.item a:hover {
+    color: red;
+}
+
+.delete {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.delete:hover {
+    color: red;
+}

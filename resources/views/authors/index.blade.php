@@ -14,7 +14,7 @@
 
 <ul>
     @foreach ($authors as $author)
-    <li>
+    <li class="item">
         <b>Név: </b>{{ $author->name }}
         <br>
         <a href="{{ route('authors.show', $author->id) }}">Megjelenítés</a><br>
@@ -22,7 +22,7 @@
         <form action="{{ route('authors.destroy', $author->id) }}" method="post">
             @csrf
             @method('DELETE')
-            <button type="submit" onclick="return confirm('Biztosan akarja törölni?')">Törlés</button>
+            <button class="delete" type="submit" onclick="return confirm('Biztosan akarja törölni?')">Törlés</button>
         </form>
     </li>
     @endforeach
