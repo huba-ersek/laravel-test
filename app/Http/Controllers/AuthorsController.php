@@ -57,7 +57,8 @@ class AuthorsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $author = Author::find($id);
+        return view('authors.edit', compact('author'));
     }
 
     /**
@@ -65,7 +66,18 @@ class AuthorsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            "name" => "required|string",
+            "birth_time" => "required|date"
+        ]);
+
+        $author = Author::find($id);
+        $author->name = $request->name;
+        $author->birth_time = $request->birth_time;
+        $author->timestamps = false;
+        $author->save();
+
+        return redirect()->route('authors.index')->with('success', 'Író sikeresen módosítva!');
     }
 
     /**
