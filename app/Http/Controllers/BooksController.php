@@ -50,7 +50,10 @@ class BooksController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $book = Book::find($id);
+        $genre = Genre::find($book->genre_id);
+        $author = Author::find($book->author_id);
+        return view('books.show', compact('book', 'genre', 'author'));
     }
 
     /**
