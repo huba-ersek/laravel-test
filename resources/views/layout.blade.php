@@ -10,7 +10,7 @@
 <body>
     <header>
         <nav>
-            <ul>
+            <ul class="navbar">
                 <li><a href="{{ route('index') }}">Főoldal</a></li>
                 <li><a href="{{ route('books.index') }}">Könyvek</a></li>
                 <li><a href="{{ route('authors.index') }}">Írók</a></li>

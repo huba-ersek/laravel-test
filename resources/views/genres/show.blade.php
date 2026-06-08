@@ -4,6 +4,6 @@
 
 <h1>Műfaj részletei</h1>
 
-<p>Név: {{ $genre->name }}</p>
+<p><b>Név: </b>{{ $genre->name }}</p>
 
 @endsection
