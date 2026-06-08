@@ -17,8 +17,6 @@
     <li>
         <b>Név: </b>{{ $author->name }}
         <br>
-        <b>Született: </b>{{ $author->birth_time }}
-        <br>
         <a href="{{ route('authors.show', $author->id) }}">Megjelenítés</a><br>
         <a href="{{ route('authors.edit', $author->id) }}">Szerkesztés</a><br>
         <form action="{{ route('authors.destroy', $author->id) }}" method="post">
