@@ -1,8 +1,28 @@
 body {
     background-color: beige;
     color: darkgoldenrod;
+    font-size: xx-large;
 }
 
 .create {
     text-decoration: none;
+}
+
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.navbar a {
+    display: block;
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #555555;
+    color: white;
 }
