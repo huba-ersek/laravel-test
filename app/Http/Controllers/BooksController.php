@@ -74,6 +74,9 @@ class BooksController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $book = Book::find($id);
+        $book->delete();
+
+        return redirect()->route('books.index')->with('success', 'Könyv sikeresen törölve!');
     }
 }
