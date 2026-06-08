@@ -27,7 +27,7 @@ body {
     color: white;
 }
 
-button[type=submit], input, select {
+button[type=submit], input, select, textarea {
     font-size: xx-large;
 }
 
