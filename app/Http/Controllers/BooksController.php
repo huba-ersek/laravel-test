@@ -61,7 +61,10 @@ class BooksController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $book = Book::find($id);
+        $genres = Genre::all();
+        $authors = Author::all();
+        return view('books.edit', compact('book', 'genres', 'authors'));
     }
 
     /**
@@ -69,7 +72,18 @@ class BooksController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            "title" => "required",
+            "description" => "required",
+            "year" => "required|integer",
+            "genre_id" => "required|exists:genres,id",
+            "author_id" => "required|exists:authors,id"
+        ]);
+
+        $book = Book::find($id);
+        Book::withoutTimestamps(fn() => $book->update($request->all()));
+
+        return redirect()->route('books.index')->with('success', 'Könyv sikeresen módosítva!');
     }
 
     /**
