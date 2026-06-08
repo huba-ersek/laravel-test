@@ -21,6 +21,7 @@
     <main>
         @yield('content')
     </main>
+    <hr>
     <footer>
         © 2026 Érsek Huba
     </footer>
